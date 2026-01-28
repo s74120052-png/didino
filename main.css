@@ -1,44 +1,57 @@
-head{
+/* General Page Setup */
+body {
     background-color: #d1f2eb;
+    margin: 0;
+    font-family: sans-serif;
 }
-body{
-    background-color: #d1f2eb;
-    
-}
+
 h1 {
     text-align: center;
     color: #50c878;
-    
-}
-button{
-    color: #013220;
-} 
-hr{
-    background-color: black;
-}
-img{
-    left: 30%;
-    position: absolute;
-}
-.zoo2{
-    position: absolute;
-    top: 58%;
-    font-size: 300%;
-    left: 60%;
-}
-.online_watch_zoo2{
-    position: absolute;
-    height: 3cap;
-    width: 14%;
-    left: 30%;
-    top: 63%;
-    font-size: 200%;
-    background-color: #50c878;
-}
-.zoo2_play{
-    position: absolute;
-    height: auto;
-    width: auto;
-    left: 27%;
 }
 
+/* The Container that holds everything */
+.main-container {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;    /* Centers everything horizontally */
+    padding: 20px;
+    gap: 20px;              /* Adds space between new items automatically */
+}
+
+/* The Film Section */
+.film-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 90%;             /* Takes up most of the screen on mobile */
+    max-width: 500px;       /* Stops it from getting too big on desktop */
+}
+
+img {
+    max-width: 100%;        /* Makes the image shrink on small screens */
+    height: auto;
+    border-radius: 15px;
+}
+
+.zoo2 {
+    font-size: 2.5rem;      /* 'rem' scales better than % for text */
+    margin: 10px 0;
+    color: #013220;
+}
+
+.online_watch_zoo2 {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    background-color: #50c878;
+    color: #013220;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;       /* Makes it look nice when hovered */
+}
+
+.online_watch_zoo2:hover {
+    background-color: #3e9e5e;
+}
