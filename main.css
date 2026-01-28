@@ -8,10 +8,36 @@ body{
 h1 {
     text-align: center;
     color: #50c878;
+    
 }
 button{
     color: #013220;
 } 
 hr{
     background-color: black;
+}
+img{
+    left: 30%;
+    position: absolute;
+}
+.zoo2{
+    position: absolute;
+    top: 51%;
+    font-size: 300%;
+    left: 60%;
+}
+.online_watch_zoo2{
+    position: absolute;
+    height: 3cap;
+    width: 14%;
+    left: 30%;
+    top: 55%;
+    font-size: 200%;
+    background-color: #50c878;
+}
+.zoo2_play{
+    position: absolute;
+    height: auto;
+    width: auto;
+    left: 27%;
 }
