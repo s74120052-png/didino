@@ -1,5 +1,109 @@
-/* Add this to the bottom of your main.css */
+/* --- 1. Global Setup --- */
+body {
+    background: linear-gradient(135deg, #d1f2eb 0%, #a8e6cf 100%);
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+header {
+    text-align: center;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+h1 {
+    color: #013220;
+    margin: 0;
+    font-size: 3.5rem;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+hr.rounded {
+    border: none;
+    height: 4px;
+    background-color: #013220;
+    width: 80px;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+/* --- 2. Smart Layout Container --- */
+.main-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 20px;
+    gap: 40px;
+    width: 100%;
+}
+
+/* --- 3. Liquid Glass Card (Universal) --- */
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.25); 
+    backdrop-filter: blur(15px);          
+    -webkit-backdrop-filter: blur(15px);  
+    
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 30px;
+    padding: 35px;
+    width: 85%;
+    max-width: 480px;
+    
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px 0 rgba(31, 38, 135, 0.25);
+}
+
+/* --- 4. Content Elements --- */
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.movie-title {
+    font-size: 2.2rem;
+    color: #013220;
+    margin: 25px 0;
+    font-weight: 700;
+}
+
+/* --- 5. Buttons & Inputs --- */
+.watch-btn {
+    background: #50c878;
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(80, 200, 120, 0.3);
+    transition: all 0.3s ease;
+}
+
+.watch-btn:hover {
+    background-color: #013220;
+    transform: scale(1.08);
+}
+
+/* Login Specific Styles */
 .login-form {
     display: flex;
     flex-direction: column;
@@ -8,23 +112,35 @@
 }
 
 .glass-input {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    padding: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    padding: 14px;
     color: #013220;
-    font-size: 1rem;
+    font-size: 1.1rem;
     outline: none;
     transition: 0.3s;
     text-align: center;
 }
 
 .glass-input:focus {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
     border-color: #50c878;
-    box-shadow: 0 0 10px rgba(80, 200, 120, 0.2);
 }
 
-.glass-input::placeholder {
-    color: rgba(1, 50, 32, 0.5);
+/* --- 6. Mobile Detection Adjustments --- */
+@media (max-width: 600px) {
+    h1 { font-size: 2.4rem; }
+    
+    .movie-card {
+        padding: 20px;
+        width: 90%;
+    }
+    
+    .movie-title { font-size: 1.7rem; }
+    
+    .watch-btn {
+        width: 100%; /* Easy to tap on phone */
+        padding: 12px;
+    }
 }
