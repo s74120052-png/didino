@@ -1,57 +1,82 @@
-/* General Page Setup */
+/* General Setup */
 body {
     background-color: #d1f2eb;
     margin: 0;
+    padding: 0;
     font-family: sans-serif;
 }
 
-h1 {
+header {
     text-align: center;
-    color: #50c878;
+    padding: 20px;
 }
 
-/* The Container that holds everything */
+h1 {
+    color: #50c878;
+    margin: 0;
+    font-size: 3rem;
+}
+
+hr.rounded {
+    border: none;
+    height: 4px;
+    background-color: black;
+    width: 60%;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+/* The "Smart" Container */
 .main-container {
     display: flex;
-    flex-direction: column; /* Stacks items vertically */
+    flex-direction: column; /* Stacks movies vertically */
     align-items: center;    /* Centers everything horizontally */
     padding: 20px;
-    gap: 20px;              /* Adds space between new items automatically */
+    gap: 40px;              /* Automatic space between new movies */
 }
 
-/* The Film Section */
-.film-card {
+/* Individual Movie Styling */
+.movie-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    width: 90%;             /* Takes up most of the screen on mobile */
-    max-width: 500px;       /* Stops it from getting too big on desktop */
+    width: 100%;
 }
 
 img {
-    max-width: 100%;        /* Makes the image shrink on small screens */
+    width: 90%;            /* Flexible on mobile */
+    max-width: 450px;      /* Limits size on desktop */
     height: auto;
-    border-radius: 15px;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
-.zoo2 {
-    font-size: 2.5rem;      /* 'rem' scales better than % for text */
-    margin: 10px 0;
+.movie-title {
+    font-size: 2.5rem;
     color: #013220;
+    margin: 15px 0;
 }
 
-.online_watch_zoo2 {
-    padding: 10px 20px;
-    font-size: 1.5rem;
+.watch-btn {
     background-color: #50c878;
     color: #013220;
     border: none;
-    border-radius: 8px;
+    padding: 12px 35px;
+    font-size: 1.5rem;
+    border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;       /* Makes it look nice when hovered */
+    transition: 0.3s;
+    font-weight: bold;
 }
 
-.online_watch_zoo2:hover {
+.watch-btn:hover {
     background-color: #3e9e5e;
+    transform: scale(1.05);
+}
+
+/* Mobile Adjustments (Smart Detection) */
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    .movie-title { font-size: 1.8rem; }
+    .watch-btn { width: 100%; }
 }
