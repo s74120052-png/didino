@@ -1,27 +1,32 @@
 /* General Setup */
 body {
     background-color: #d1f2eb;
+    /* Gradient adds a "liquid" feel behind the glass */
+    background: linear-gradient(135deg, #d1f2eb 0%, #a8e6cf 100%);
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
 }
 
 header {
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px 20px 20px;
 }
 
 h1 {
-    color: #50c878;
+    color: #013220;
     margin: 0;
-    font-size: 3rem;
+    font-size: 3.5rem;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 hr.rounded {
     border: none;
     height: 4px;
-    background-color: black;
-    width: 60%;
+    background-color: #013220;
+    width: 100px; /* Small stylish line */
     margin: 10px auto;
     border-radius: 5px;
 }
@@ -29,54 +34,78 @@ hr.rounded {
 /* The "Smart" Container */
 .main-container {
     display: flex;
-    flex-direction: column; /* Stacks movies vertically */
-    align-items: center;    /* Centers everything horizontally */
+    flex-direction: column; 
+    align-items: center;
     padding: 20px;
-    gap: 40px;              /* Automatic space between new movies */
+    gap: 50px;
 }
 
-/* Individual Movie Styling */
+/* --- LIQUID GLASS CARD --- */
 .movie-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    
+    /* The Glass Effect */
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(15px);          /* Blurs background behind card */
+    -webkit-backdrop-filter: blur(15px);  /* Safari support */
+    
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Thin white border */
+    border-radius: 30px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    
+    /* Soft glowing shadow */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px); /* Floats up on hover */
+    box-shadow: 0 15px 45px 0 rgba(31, 38, 135, 0.25);
 }
 
 img {
-    width: 90%;            /* Flexible on mobile */
-    max-width: 450px;      /* Limits size on desktop */
+    width: 100%;
     height: auto;
     border-radius: 20px;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    object-fit: cover;
+    /* Makes the image pop against the glass */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .movie-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #013220;
-    margin: 15px 0;
+    margin: 20px 0;
+    font-weight: 700;
 }
 
+/* Glassmorphism Button */
 .watch-btn {
-    background-color: #50c878;
-    color: #013220;
+    background: #50c878;
+    color: white;
     border: none;
-    padding: 12px 35px;
-    font-size: 1.5rem;
-    border-radius: 10px;
+    padding: 15px 45px;
+    font-size: 1.4rem;
+    border-radius: 50px; /* Pill shape */
     cursor: pointer;
-    transition: 0.3s;
     font-weight: bold;
+    box-shadow: 0 4px 15px rgba(80, 200, 120, 0.4);
+    transition: all 0.3s ease;
 }
 
 .watch-btn:hover {
-    background-color: #3e9e5e;
-    transform: scale(1.05);
+    background-color: #013220;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(1, 50, 32, 0.3);
 }
 
-/* Mobile Adjustments (Smart Detection) */
+/* Mobile Adjustments */
 @media (max-width: 600px) {
-    h1 { font-size: 2rem; }
+    h1 { font-size: 2.5rem; }
+    .movie-card { padding: 20px; }
     .movie-title { font-size: 1.8rem; }
-    .watch-btn { width: 100%; }
 }
