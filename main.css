@@ -1,6 +1,10 @@
-/* --- 1. Basic Reset & Page Style --- */
+/* --- Basic Reset --- */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #d1f2eb; /* Your original mint green */
+    background-color: #d1f2eb; /* Your mint green */
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -9,95 +13,80 @@ body {
     align-items: center;
 }
 
+/* --- Header Section --- */
 header {
     text-align: center;
-    padding: 30px 0;
-    width: 100%;
+    padding: 40px 0;
 }
 
 h1 {
-    color: #50c878; /* Emerald Green */
+    color: #50c878;
     margin: 0;
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: clamp(2.5rem, 8vw, 4rem); /* Text gets smaller on small screens */
 }
 
-hr.rounded {
-    border: none;
+.line {
     height: 4px;
+    width: 80px;
     background-color: #013220;
-    width: 100px;
     margin: 10px auto;
     border-radius: 10px;
 }
 
-/* --- 2. The Smart Container --- */
-.main-container {
+/* --- Layout Container --- */
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding: 20px;
-    gap: 40px; /* Space between movies if you add more */
+    gap: 30px; /* Space between movies */
 }
 
-/* --- 3. The Movie Card (Simple & Strong) --- */
-.movie-card {
-    background-color: white;
+/* --- The Movie Card --- */
+.card {
+    background: white;
     border-radius: 20px;
     padding: 20px;
-    width: 90%;
-    max-width: 450px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Soft shadow */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 95%;
+    max-width: 450px; /* Looks good on desktop, fills screen on mobile */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     text-align: center;
 }
 
-.movie-card img {
+.card img {
     width: 100%;
     height: auto;
     border-radius: 15px;
-    display: block;
 }
 
-.movie-title {
-    font-size: 2rem;
+.card h2 {
     color: #013220;
     margin: 20px 0;
+    font-size: 1.8rem;
 }
 
-/* --- 4. The Button --- */
-.watch-btn {
+/* --- The Button --- */
+.btn-watch {
     background-color: #50c878;
     color: #013220;
     border: none;
-    padding: 15px 40px;
-    font-size: 1.4rem;
+    padding: 15px 0;
+    width: 100%; /* Full width for easy clicking */
+    font-size: 1.3rem;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: 0.2s;
-    width: 100%; /* Makes it easy to click */
+    transition: background 0.2s ease;
 }
 
-.watch-btn:hover {
+.btn-watch:hover {
     background-color: #3e9e5e;
-    transform: scale(1.02);
 }
 
-/* --- 5. Mobile Detection (Actually Smart) --- */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-    
-    .movie-card {
-        padding: 15px;
-    }
-    
-    .movie-title {
-        font-size: 1.6rem;
-    }
+/* --- Mobile Fixes --- */
+@media (max-width: 480px) {
+    h1 { font-size: 2.2rem; }
+    .card { padding: 15px; }
+    .card h2 { font-size: 1.5rem; }
 }
